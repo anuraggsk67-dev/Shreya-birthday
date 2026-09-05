@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Shreya 🎂</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0; min-height:100vh; overflow-x:hidden;
+ font-family:Arial,sans-serif; text-align:center;
+ color:#4b3045;
+ background:linear-gradient(135deg,#fff0f5,#eee7ff);
+}
+.container{padding:55px 20px;position:relative;z-index:2}
+h1{
+ font-size:clamp(38px,10vw,70px);
+ margin:15px 0;
+ background:linear-gradient(90deg,#e75480,#805ad5,#d6a52c);
+ -webkit-background-clip:text;color:transparent;
+}
+.subtitle{font-size:18px;margin-bottom:35px}
+.card{
+ max-width:650px;margin:auto;padding:30px 22px;
+ background:#ffffffdd;border-radius:25px;
+ box-shadow:0 15px 45px #76508025;
+ line-height:1.7;
+}
+.card h2{color:#7652bd}
+.memory{
+ margin-top:20px;padding:15px;background:#fff7d9;
+ border-radius:15px;font-style:italic;
+}
+.cake{font-size:100px;margin:25px 0 5px}
+.candles{font-size:45px;transition:.3s}
+button{
+ border:0;border-radius:30px;padding:15px 24px;
+ margin:10px;background:linear-gradient(135deg,#e85d8a,#8065d8);
+ color:white;font-size:16px;font-weight:bold;
+ box-shadow:0 8px 20px #76508030;
+}
+button:active{transform:scale(.95)}
+.surprise{
+ display:none;max-width:600px;margin:25px auto;
+ padding:28px;background:#fff;border-radius:25px;
+ box-shadow:0 15px 45px #76508030;
+ animation:pop .6s ease;
+ line-height:1.7;
+}
+.balloon{
+ position:fixed;bottom:-120px;width:55px;height:70px;
+ border-radius:50%;opacity:.65;
+ animation:float 10s linear infinite;
+}
+.b1{left:5%;background:#ff8fab}
+.b2{left:25%;background:#a78bfa;animation-delay:3s}
+.b3{right:20%;background:#ffd166;animation-delay:1s}
+.b4{right:4%;background:#ffb3c6;animation-delay:5s}
+@keyframes float{
+ from{transform:translateY(0)}
+ to{transform:translateY(-120vh)}
+}
+@keyframes pop{
+ from{transform:scale(.7);opacity:0}
+ to{transform:scale(1);opacity:1}
+}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:10}
+.confetti{
+ position:absolute;top:-20px;font-size:22px;
+ animation:fall 3s linear forwards;
+}
+@keyframes fall{
+ to{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+footer{margin-top:45px;opacity:.6}
+</style>
+</head>
+
+<body>
+
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+<div id="confetti"></div>
+
+<div class="container">
+
+<p>🎀 A little surprise from your brother</p>
+
+<h1>Happy Birthday,<br>Shreya! 🎂✨</h1>
+
+<p class="subtitle">Today is all about celebrating YOU! 💗</p>
+
+<div class="card">
+<h2>To My Amazing Sister 💕</h2>
+
+<p>
+Happy Birthday, Shreya! 🥳<br><br>
+
+No matter how busy life gets or how far apart we are,
+you'll always be one of the most special people in my life.
+I hope this year brings you lots of happiness, beautiful
+memories, exciting adventures and everything you've wished for. ✨
+<br><br>
+
+Keep smiling, keep being yourself, and keep being the
+wonderful sister you are. I'm lucky to have you. ❤️
+</p>
+
+<div class="memory">
+💭 <b>Our special memory:</b><br><br>
+[Write your inside joke, funny memory or personal message here.]
+</div>
+</div>
+
+<br>
+
+<h2>🎂 Make a Wish! 🌟</h2>
+
+<div class="cake">🎂</div>
+<div class="candles" id="candles">🕯️🕯️🕯️</div>
+
+<button onclick="blow()">🕯️ Click to Blow Out the Candles</button>
+
+<p id="wish" style="display:none">
+✨ Candles blown out! May your wish come true! 💫
+</p>
+
+<br>
+
+<button onclick="surprise()">🎁 A Surprise Message for Shreya</button>
+
+<div class="surprise" id="surprise">
+<div style="font-size:55px">💌✨</div>
+
+<h2>One More Thing...</h2>
+
+<p>
+Shreya, no matter what happens, always remember that
+your brother is cheering for you. ❤️
+<br><br>
+
+Here's to more laughs, more memories, more crazy
+conversations and many more birthdays together! 😂🎉
+<br><br>
+
+Stay happy, stay awesome and keep smiling.
+<br><br>
+
+<b>Happy Birthday once again! 🎂🎉❤️</b>
+</p>
+</div>
+
+<footer>Made with ❤️ by your brother</footer>
+
+</div>
+
+<script>
+function confetti(n){
+ for(let i=0;i<n;i++){
+  let x=document.createElement("div");
+  x.className="confetti";
+  x.innerHTML=["🎉","✨","💗","⭐","🎊","💫"][Math.floor(Math.random()*6)];
+  x.style.left=Math.random()*100+"vw";
+  x.style.animationDelay=Math.random()+"s";
+  document.getElementById("confetti").appendChild(x);
+  setTimeout(()=>x.remove(),4000);
+ }
+}
+
+function blow(){
+ document.getElementById("candles").innerHTML="💨💨💨";
+ document.getElementById("wish").style.display="block";
+ confetti(80);
+}
+
+function surprise(){
+ let box=document.getElementById("surprise");
+ box.style.display=box.style.display==="block"?"none":"block";
+ if(box.style.display==="block"){
+  confetti(100);
+  box.scrollIntoView({behavior:"smooth",block:"center"});
+ }
+}
+
+setTimeout(()=>confetti(25),700);
+</script>
+
+</body>
+  </html>
